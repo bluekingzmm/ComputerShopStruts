@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="configuration.xml.reload" value="true" />
+
+	<package name="shopcartOperate" namespace="/" extends="struts-default">
+		<action name="*ShopCart" class="com.action.ShopCartAction"
+			method="{1}">
+			<result name="shopcartList" type="redirectAction">
+				<param name="actionName">listShopCart</param>
+			</result>
+			<result name="list">/user/ShopCart.jsp</result>
+			<result name="input">/user/{1}.jsp</result>
+			<result name="error">/errors/error.jsp</result>
+
+		</action>
+	</package>
+
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="configuration.xml.reload" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<default-action-ref name="execute"></default-action-ref>
+		<action name="execute" class="com.action.FirstAction">
+			<result>/index.jsp</result>
+		</action>
+		
+		<action name="*Admin" class="com.action.AdminAction" method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">listAdmin</param>
+			</result>
+			<result name="index">/admin/index.jsp
+			</result>
+			<result name="input">/admin/{1}.jsp</result>  
+			<result name="quit">/admin/login.jsp</result>
+			<result name="error">/errors/error.jsp</result>
+			<result name="list">/admin/list.jsp</result>
+			<result name="add">/admin/add.jsp</result>
+			<result name="update">/admin/update.jsp</result>
+			<result name="recycleBinList">/admin/recycleList.jsp</result>
+			<result name="clear" type="redirectAction">
+				<param name="actionName">recycleBinListAdmin</param>
+			</result>
+		</action>
+
+	</package>
+
+
+</struts>

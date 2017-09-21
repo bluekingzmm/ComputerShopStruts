@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="user.user_name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>用户名必须填写！</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="trim">true</param>
+			<param name="minLength">3</param>
+			<message>用户名至少3个字符!!!!</message>
+		</field-validator>
+	</field>
+	<field name="user.user_password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>密码必须填写!!!!</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="expression*"><![CDATA[^[a-zA-Z0-9]{6,12}$]]></param>
+			<message><![CDATA[密码的长度应该在6-12之间]]></message>
+		</field-validator>
+
+	</field>
+	<field name="user.rel_name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>真实姓名必须填写!!!!</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[([\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*)]]></param>
+			
+			<message><![CDATA[请输入正确的姓名！！]]></message>
+		</field-validator>
+
+	</field>
+	<field name="user.phone">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>手机号码必须填写!!!!</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[(^[1][358][0-9]{9}$)]]></param>
+			<message><![CDATA[手机号码格式不对！请重新填写！]]></message>
+		</field-validator>
+
+	</field>
+	<field name="user.mail">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>邮箱必须填写!!!!</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[(^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$)]]></param>
+			<message><![CDATA[邮箱地址格式不对！请重新填写！]]></message>
+		</field-validator>
+
+	</field>
+	<field name="user.id">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>身份证号码必须填写!!!!</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[(^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$)]]></param>
+			<message><![CDATA[身份证号码格式不对！请重新填写！]]></message>
+		</field-validator>
+
+	</field>
+
+
+</validators>

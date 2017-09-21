@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="configuration.xml.reload" value="true" />
+
+	<package name="orderOperate" namespace="/" extends="struts-default">
+		<action name="*Order" class="com.action.OrderAction" method="{1}">
+			<result name="list">/admin/listOrder.jsp</result>
+			<result name="input">/admin/{1}.jsp</result>
+			<result name="error">/errors/error.jsp</result>
+			<result name="listInfo">/user/listOrder.jsp</result>
+			<result name="listDetailOrder">/admin/listDetailOrder.jsp</result>
+			<result name="orderList" type="redirectAction">
+				<param name="actionName">listOrder</param>
+			</result>
+			<result name="orderInfoList" type="redirectAction">
+				<param name="actionName">listInfoOrder</param>
+			</result>
+			<result name="sale">/admin/sale.jsp</result>
+			<result name="echart">/admin/Echarts.jsp</result>
+			<result name="message">/admin/listMessge.jsp</result>
+			<result name="messageInfoList" type="redirectAction">
+				<param name="actionName">listMessageOrder</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

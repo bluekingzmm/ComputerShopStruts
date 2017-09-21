@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zmm.pojo.Order" table="order_info">
+		<id name="order_id" type="java.lang.Long" column="order_id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="total" type="java.lang.Double" column="totalPrice" />
+		<property name="state" type="java.lang.Integer" column="state" />
+		<property name="ispay" type="java.lang.Integer" column="ispay" />
+		<property name="isdeliver" type="java.lang.Integer" column="isdeliver" />
+		<property name="tx" type="java.lang.Integer" column="tx" />
+		<property name="label" type="java.lang.String" column="label" />
+		<property name="submitTime" type="java.util.Date" column="buy_date" />
+		<many-to-one name="user" column="user_id" class="com.zmm.pojo.User" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

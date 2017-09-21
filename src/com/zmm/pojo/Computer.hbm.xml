@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zmm.pojo.Computer" table="computer_info">
+		<id name="com_id" type="java.lang.Integer" column="com_id">
+			<generator class="native" />
+		</id>
+		<property name="model" type="java.lang.String" column="model" />
+		<property name="color" type="java.lang.String" column="color" />
+		<property name="price" type="java.lang.Double" column="price" />
+		<property name="rel_price" type="java.lang.Double" column="rel_price" />
+		<property name="imgPath" type="java.lang.String" column="img_path" />
+		<property name="reg_date" type="java.util.Date" column="reg_date" />
+		<property name="pixels" type="java.lang.String" column="pixels" />
+		<property name="ram" type="java.lang.Integer" column="ram" />
+		<property name="content" type="java.lang.String" column="content" />
+		<property name="num" type="java.lang.Integer" column="num" />
+		<property name="status" type="java.lang.Integer"  column="status" />
+		<many-to-one name="screen" column="screen_id" class="com.zmm.pojo.Screen"
+			lazy="false"></many-to-one>
+		<many-to-one name="cpu" column="cpu_id" class="com.zmm.pojo.Cpu"
+			lazy="false"></many-to-one>
+		<many-to-one name="brand" column="brand_id" class="com.zmm.pojo.Brand"
+			lazy="false"></many-to-one>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="configuration.xml.reload" value="true" />
+
+	<package name="computerOperate" namespace="/" extends="struts-default">
+		<action name="*Computer" class="com.action.ComputerAction"
+			method="{1}">
+			<result name="comList" type="redirectAction">
+				<param name="actionName">listComputer</param>
+			</result>
+			
+			<result name="list">/computer/list.jsp</result>
+			<result name="listinfo">/list.jsp</result>
+			<result name="input">/computer/{1}.jsp</result>
+			<result name="error">/errors/error.jsp</result>
+			<result name="product">/product.jsp</result>
+			<result name="show">/computer/show.jsp</result>
+			<result name="update">/computer/update.jsp</result>
+			<result name="editInfo" type="redirectAction">
+				<param name="actionName">editComputer</param>
+			</result>
+			<result name="addInfo" type="redirectAction">
+				<param name="actionName">addComputer</param>
+			</result>
+			<result name="add">/computer/add.jsp</result>
+		</action>
+	</package>
+
+</struts>

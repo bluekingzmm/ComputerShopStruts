@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<!-- <package name="employee" namespace="/" extends="struts-default"> <action 
+		name="*Upload" class="com.action.UploadAction" method="{1}"> <result>/computer/upload.jsp</result> 
+		<result name="input">/computer/{1}.jsp</result> </action> </package> -->
+
+	<package name="employee" namespace="/" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="auth" class="com.zmm.util.AuthInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="auth"></interceptor-ref>
+				<interceptor-ref name="defaultStack">
+					<param name="fileUpload.maximumSize">204856</param>
+					<param name="fileUpload.allowedExtensions">.png,.gif,.jpg</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="uploadAction" class="com.action.UploadAction"
+			method="upload">
+			<interceptor-ref name="myStack"></interceptor-ref>
+		</action>
+	</package>
+</struts>

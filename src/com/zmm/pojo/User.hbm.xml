@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zmm.pojo.User" table="user_info">
+		<id name="user_id" type="java.lang.String" column="user_id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="user_name" type="java.lang.String" column="user_name" />
+		<property name="rel_name" type="java.lang.String" column="rel_name" />
+		<property name="phone" type="java.lang.String" column="phone" />
+		<property name="address" type="java.lang.String" column="address" />
+		<property name="mail" type="java.lang.String" column="mail" />
+		<property name="code" type="java.lang.String" column="code" />
+		<property name="sex" type="java.lang.String" column="sex" />
+		<property name="Id" type="java.lang.String" column="Id" />
+		<property name="user_password" type="java.lang.String"
+			column="user_password" />
+		<property name="status" type="java.lang.Integer" column="status" />
+		<property name="age" type="java.lang.Integer" column="age" />
+		<property name="reg_time" type="java.util.Date" column="reg_time" />
+
+	</class>
+
+
+
+</hibernate-mapping>

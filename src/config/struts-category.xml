@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="configuration.xml.reload" value="true" />
+
+	<package name="categoryOperate" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="authAdmin" class="com.zmm.util.AuthAdminInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="authAdmin">
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="*Category" class="com.action.CategoryAction"
+			method="{1}">
+			<result name="brandList" type="redirectAction">
+				<param name="actionName">listBrandCategory</param>
+			</result>
+			<result name="cpuList" type="redirectAction">
+				<param name="actionName">listCpuCategory</param>
+			</result>
+			<result name="screenList" type="redirectAction">
+				<param name="actionName">listScreenCategory</param>
+			</result>
+
+			<result name="blist">/category/listBrand.jsp</result>
+			<result name="clist">/category/listCpu.jsp</result>
+			<result name="slist">/category/listScreen.jsp</result>
+
+			<result name="input">/category/{1}.jsp</result>
+			<result name="error">/errors/error.jsp</result>
+<!-- 			<interceptor-ref name="myStack"></interceptor-ref>
+ -->
+		</action>
+	</package>
+
+</struts>

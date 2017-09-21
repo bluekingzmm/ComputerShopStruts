@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="configuration.xml.reload" value="true" />
+
+	<package name="userOperate" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="authUser" class="com.zmm.util.AuthUserInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="authUser">
+					<param name="excludeMethods">login,quit</param>
+
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<action name="*User" class="com.action.UserAction" method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">listUser</param>
+			</result>
+			<result name="list">/user/list.jsp</result>
+			<result name="input">/user/{1}.jsp</result>
+			<result name="userInfo_sec">/user/user.jsp</result>
+			<result name="recycleList">/user/recycleList.jsp</result>
+			<result name="clear" type="redirectAction">
+				<param name="actionName">recycleBinListUser</param>
+			</result>
+			<result name="userSearch">/user/search.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="add">/user/register.jsp</result>
+			<result name="error">/errors/error.jsp</result>
+			<result name="userInfo_fir">/user/OwnInfo.jsp</result>
+			<result name="backLogin">/user/login.jsp</result>
+			<result name="forgetPwd1">/user/modifyPsw/forgetPwd1.jsp</result>
+			<result name="forgetPwd2">/user/modifyPsw/forgetPwd2.jsp</result>
+			<result name="forgetPwd3">/user/modifyPsw/forgetPwd3.jsp</result>
+			<result name="forgetPwd4">/user/modifyPsw/forgetPwd4.jsp</result>
+<!--  			<interceptor-ref name="myStack"></interceptor-ref>
+ -->
+		</action>
+	</package>
+</struts>

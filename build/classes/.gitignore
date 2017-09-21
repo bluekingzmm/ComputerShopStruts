@@ -1,0 +1,7 @@
+/com/
+/config/
+/database.properties
+/email.properties
+/hibernate.cfg.xml
+/send.properties
+/struts.xml
